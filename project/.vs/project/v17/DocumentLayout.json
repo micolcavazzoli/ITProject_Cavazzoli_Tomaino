@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "functions.h",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\functions.h",
+              "RelativeDocumentMoniker": "functions.h",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\functions.h",
+              "RelativeToolTip": "functions.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-29T00:10:44.787Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
