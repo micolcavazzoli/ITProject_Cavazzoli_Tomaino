@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\",
+  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,13 +20,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\main.cpp",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\PARIS-SACLAY\\PROGRAMMATION \u002B PROJECT INFORMATIQUE\\Project-informatique\\project\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-28T13:52:39.968Z",
+              "WhenOpened": "2025-12-28T14:13:40.074Z",
               "EditorCaption": ""
             }
           ]
