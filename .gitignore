@@ -1,12 +1,27 @@
-*
-!*/
+# ===== Visual Studio =====
+.vs/
+x64/
+Debug/
+Release/
+
+# Build intermedi
+*.obj
+*.pdb
+*.ilk
+*.log
+*.tlog
+
+# File utente Visual Studio
+*.vcxproj.user
+*.suo
+
+# Cache e database
+*.db
+*.opendb
+*.ipch
+
+# ===== Eccezioni: codice sorgente =====
 !*.cpp
 !*.h
-project/.vs/project/CopilotIndices/17.14.1347.20289/CodeChunks.db
-project/.vs/project/CopilotIndices/17.14.1347.20289/CodeChunks.db
-project/.vs/project/CopilotIndices/17.14.1347.20289/SemanticSymbols.db
-project/.vs/project/v17/.suo
-project/.vs/project/v17/DocumentLayout.backup.json
-project/.vs/project/v17/DocumentLayout.json
-.vs/
-project/.vs/
+!*.hpp
+!*.c
