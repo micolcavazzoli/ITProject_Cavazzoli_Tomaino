@@ -29,8 +29,10 @@ void plot_delta_S0(Option type, double r, double sigma, double T, int steps, int
 
 	file << "S0, delta\n";
 
-	for (double S0 = Smin; S0 <= Smax; S0++) {
+	for (double S0 = Smin; S0 <= Smax; S0 += ds) {
 		double delta = delta_lookback(type,S0, r, sigma, T, steps, paths, h_delta, seed);
 		file << S0 << "," << delta << "\n";
 	}
 }
+
+

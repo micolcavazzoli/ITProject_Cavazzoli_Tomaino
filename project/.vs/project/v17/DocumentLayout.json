@@ -1,10 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\project_copia\\",
+  "WorkspaceRootPath": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\PC\\Desktop\\project_copia\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\plots.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:plots.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\LookbackOption.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:LookbackOption.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\LookbackOption.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:LookbackOption.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\plots.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{58B483C0-EB8A-4D68-B2D9-8D5B5F41FAC4}|project.vcxproj|solutionrelative:plots.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "LookbackOption.h",
+              "DocumentMoniker": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\LookbackOption.h",
+              "RelativeDocumentMoniker": "LookbackOption.h",
+              "ToolTip": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\LookbackOption.h",
+              "RelativeToolTip": "LookbackOption.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-02T13:18:44.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\project_copia\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\project_copia\\main.cpp",
+              "ToolTip": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAEIAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-28T14:13:40.074Z",
+              "WhenOpened": "2026-01-02T08:54:09.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "plots.cpp",
+              "DocumentMoniker": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\plots.cpp",
+              "RelativeDocumentMoniker": "plots.cpp",
+              "ToolTip": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\plots.cpp",
+              "RelativeToolTip": "plots.cpp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAcwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-02T13:17:53.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LookbackOption.cpp",
+              "DocumentMoniker": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\LookbackOption.cpp",
+              "RelativeDocumentMoniker": "LookbackOption.cpp",
+              "ToolTip": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\LookbackOption.cpp",
+              "RelativeToolTip": "LookbackOption.cpp",
+              "ViewState": "AgIAACgAAAAAAAAAAAArwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-02T13:21:17.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "plots.h",
+              "DocumentMoniker": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\plots.h",
+              "RelativeDocumentMoniker": "plots.h",
+              "ToolTip": "C:\\Users\\Federica\\Documents\\GitHub\\Project-informatique\\project\\plots.h",
+              "RelativeToolTip": "plots.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-02T13:21:03.69Z",
               "EditorCaption": ""
             }
           ]
