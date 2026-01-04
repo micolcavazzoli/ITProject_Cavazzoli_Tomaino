@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "cdfglnoprstvw",
-  1: "dflp",
+  0: "acdfglnoprstvw",
+  1: "dflpr",
   2: "dglprstv",
   3: "o",
   4: "cp",
-  5: "dlnw"
+  5: "dlnw",
+  6: "alop"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "functions",
   3: "enums",
   4: "enumvalues",
-  5: "defines"
+  5: "defines",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Functions",
   3: "Enumerations",
   4: "Enumerator",
-  5: "Macros"
+  5: "Macros",
+  6: "Pages"
 };
 

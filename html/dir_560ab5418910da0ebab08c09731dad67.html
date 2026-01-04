@@ -28,7 +28,7 @@
   <td id="projectalign">
    <div id="projectname">LookbackOptions<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Lookback prices of call and put options and classification of the various Greeks</div>
+   <div id="projectbrief">C++ DLL for Monte Carlo pricing of lookback options and Greeks</div>
   </td>
  </tr>
  </tbody>
@@ -104,6 +104,13 @@ Files</h2></td></tr>
 <tr class="memitem:pricer_5Fapi_2Ecpp" id="r_pricer_5Fapi_2Ecpp"><td class="memItemLeft" align="right" valign="top"><a href="pricer__api_8cpp_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pricer__api_8cpp.html">pricer_api.cpp</a></td></tr>
 <tr class="memitem:pricer_5Fapi_2Eh" id="r_pricer_5Fapi_2Eh"><td class="memItemLeft" align="right" valign="top"><a href="pricer__api_8h_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pricer__api_8h.html">pricer_api.h</a></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+Lookback Options Pricing Library</h1>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Abstract</h1>
+<p>This project implements a C++ dynamic-link library (DLL) for the pricing of lookback options using Monte Carlo simulation. Both call and put lookback options are supported, together with the computation of the main Greeks (Delta, Gamma, Theta, Rho, Vega) via finite difference methods.</p>
+<p>The library is designed to be callable from external environments such as VBA, allowing flexible integration in financial applications. Particular attention is given to numerical stability, reproducibility through random seeds, and clear separation between pricing logic and interface code. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
