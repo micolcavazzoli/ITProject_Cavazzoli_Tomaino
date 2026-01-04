@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "LookbackOption.h"
-#include <algorithm>
-#include <cmath>
+
 
 //Function to simulate a single path of the option lookback
 double simulate_lookback(double S0, double r, double sigma, double T, int steps, Option type, std::mt19937& gen, std::normal_distribution<>& Z) {

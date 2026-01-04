@@ -1,6 +1,6 @@
 #include "LookbackOption.h"
 #include "plots.h"
-
+#include <fstream>
 int main()
 {
     //Parameters
@@ -61,6 +61,13 @@ int main()
     std::cout << "Vega call lookback: " << vega_call << std::endl;
     std::cout << "Vega put lookback: " << vega_put << std::endl;
 
+    /*//FILE WITH RESULTS
+    std::ofstream file("Results.csv");
+    file << "Results of Lookback:\n";
+
+    file << "Call price: " << call_price << "\n";
+    */
+
     //FILES FOR PLOTS
     double Smin=50;
     double Smax=150;
@@ -71,8 +78,9 @@ int main()
     plot_price_S0(Option::Put, r, sigma, T, steps, paths, Smin, Smax, ds, seed);
 
     //plots delta vs S0, call and put
-    plot_delta_S0(Option::Call, r, sigma, T, steps, paths, Smin, Smax, ds, h_delta, seed);
-    plot_delta_S0(Option::Put, r, sigma, T, steps, paths, Smin, Smax, ds, h_delta, seed);
+    plot_delta_S0(Option::Call, r, sigma, T, steps, paths, Smin, Smax, ds, seed);
+    plot_delta_S0(Option::Put, r, sigma, T, steps, paths, Smin, Smax, ds, seed);
+
 
     return 0;
 }

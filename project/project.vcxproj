@@ -126,10 +126,12 @@
     <ClCompile Include="LookbackOption.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="plots.cpp" />
+    <ClCompile Include="results.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LookbackOption.h" />
     <ClInclude Include="plots.h" />
+    <ClInclude Include="results.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

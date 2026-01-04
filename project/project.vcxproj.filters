@@ -24,12 +24,18 @@
     <ClCompile Include="plots.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
+    <ClCompile Include="results.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="plots.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="LookbackOption.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="results.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,8 +2,6 @@
 #ifndef LOOKBACKOPTION_H
 #define LOOKBACKOPTION_H
 #include "pch.h"
-#include <random>
-#include <iostream>
 
 enum class Option {
 	Call,

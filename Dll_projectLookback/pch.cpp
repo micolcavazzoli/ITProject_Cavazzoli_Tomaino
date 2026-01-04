@@ -1,5 +1,5 @@
-// pch.cpp: file di origine corrispondente all'intestazione precompilata
+// pch.cpp: source file corresponding to the precompiled header.
 
 #include "pch.h"
 
-// Quando si usano intestazioni precompilate, questo file è necessario per la riuscita della compilazione.
+
