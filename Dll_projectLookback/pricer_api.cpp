@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "pricer_api.h"
 #include "LookbackOption.h"
 
@@ -10,6 +9,7 @@ static Option toOption(int isCall)
     else
         return Option::Put;
 }
+
 
 // LookbackPriceGreeks
 // Public DLL entry point: computes Monte Carlo price and Greeks for a lookback option.
@@ -24,7 +24,7 @@ int DLL_CALL LookbackPriceGreeks(
     double S0, double r, double sigma, double T,
     int isCall,
     int steps, int paths,
-    double h_delta, double h_gamma, double dt_theta, double h_rho, double h_vega,
+    double hS, double hg, double dt, double hR, double hV,
     unsigned int seed,
     double* price, double* delta, double* gamma,
     double* theta, double* rho, double* vega
@@ -34,17 +34,19 @@ int DLL_CALL LookbackPriceGreeks(
     if (S0 <= 0.0 || sigma <= 0.0 || T <= 0.0) return -2;
     if (steps <= 0 || paths <= 0) return -3;
 
-    Option type = toOption(isCall);
-
+    const Option type = toOption(isCall);
+    LookbackParams p{ type, S0, r, sigma, T, steps, paths, seed };
+    GreeksParams g{ hS, hg, dt, hR, hV };
+    LookbackOption pricer;
     // Price
-    *price = price_lookback(type, S0, r, sigma, T, steps, paths, seed);
+    *price = pricer.price_lookback(p);
 
     // Greeks 
-    *delta = delta_lookback(type, S0, r, sigma, T, steps, paths, h_delta, seed);
-    *gamma = gamma_lookback(type, S0, r, sigma, T, steps, paths, h_gamma, seed);
-    *theta = theta_lookback(type, S0, r, sigma, T, steps, paths, dt_theta, seed);
-    *rho = rho_lookback(type, S0, r, sigma, T, steps, paths, h_rho, seed);
-    *vega = vega_lookback(type, S0, r, sigma, T, steps, paths, h_vega, seed);
+    *delta = pricer.delta_lookback(p,g);
+    *gamma = pricer.gamma_lookback(p,g);
+    *theta = pricer.theta_lookback(p,g);
+    *rho = pricer.rho_lookback(p,g);
+    *vega = pricer.vega_lookback(p,g);
 
     return 0;
 }
@@ -62,8 +64,8 @@ int DLL_CALL LookbackCountPoints(double Smin, double Smax, double dS) {
     if (Smax < Smin) return -2;
 
     // includiamo entrambi gli estremi come fai nel for (S0 <= Smax)
-    double span = Smax - Smin;
-    int n = (int)std::floor(span / dS + 1.0 + 1e-12);
+    const double span = Smax - Smin;
+    const int n = (int)std::floor(span / dS + 1.0 + 1e-12);
     return std::max(n, 0);
 }
 
@@ -82,7 +84,7 @@ int DLL_CALL LookbackPriceDeltaCurve(
     double r, double sigma, double T,
     int isCall,
     int steps, int paths,
-    double h_delta,
+    double hS,
     unsigned int seed,
     double* outS, double* outPrice, double* outDelta,
     int nPoints
@@ -95,25 +97,22 @@ int DLL_CALL LookbackPriceDeltaCurve(
     if (nPoints < expected) return -4;
 
     Option type = toOption(isCall);
+    LookbackOption pricer;
+    GreeksParams g{ hS, hS, 1e-4, 1e-4, 1e-4 };
+
 
     int k = 0;
     for (double S0 = Smin; S0 <= Smax + 1e-12; S0 += dS) {
         if (k >= nPoints) break;
 
         outS[k] = S0;
+        LookbackParams p{ type, S0, r, sigma, T, steps, paths, seed };
 
         // price
-        outPrice[k] = price_lookback(type, S0, r, sigma, T, steps, paths, seed);
+        outPrice[k] = pricer.price_lookback(p);
 
         // delta
-        unsigned int local_seed = seed + (unsigned int)(k + 1);
-        double h;
-        if (h_delta > 0.0)
-            h = h_delta;
-        else
-            h=0.02 * S0;
-
-        outDelta[k] = delta_lookback(type, S0, r, sigma, T, steps, paths, h, local_seed);
+        outDelta[k] =pricer.delta_lookback(p,g);
 
         k++;
     }

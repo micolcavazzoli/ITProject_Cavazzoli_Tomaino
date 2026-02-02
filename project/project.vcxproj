@@ -126,12 +126,18 @@
     <ClCompile Include="LookbackOption.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="plots.cpp" />
+<<<<<<< Updated upstream
     <ClCompile Include="results.cpp" />
+=======
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LookbackOption.h" />
     <ClInclude Include="plots.h" />
+<<<<<<< Updated upstream
     <ClInclude Include="results.h" />
+=======
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

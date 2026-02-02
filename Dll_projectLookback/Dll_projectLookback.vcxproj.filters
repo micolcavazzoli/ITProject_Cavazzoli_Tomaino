@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="LookbackOption.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
@@ -29,12 +23,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="LookbackOption.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>

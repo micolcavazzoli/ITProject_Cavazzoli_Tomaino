@@ -1,4 +1,5 @@
 #pragma once
+#include "LookbackOption.h"
 
 // Cross-platform export/calling-convention macros.
 // On Windows we must:
@@ -26,7 +27,7 @@ DLL_EXPORT int DLL_CALL LookbackPriceGreeks(
     double S0, double r, double sigma, double T,
     int isCall,
     int steps, int paths,
-    double h_delta, double h_gamma, double dt_theta, double h_rho, double h_vega,
+    double hS, double hg, double dt, double hR, double hV,
     unsigned int seed,
     double* price, double* delta, double* gamma,
     double* theta, double* rho, double* vega
@@ -46,7 +47,7 @@ DLL_EXPORT int DLL_CALL LookbackPriceDeltaCurve(
     double r, double sigma, double T,
     int isCall,
     int steps, int paths,
-    double h_delta,
+    double hS,
     unsigned int seed,
     double* outS, double* outPrice, double* outDelta,
     int nPoints

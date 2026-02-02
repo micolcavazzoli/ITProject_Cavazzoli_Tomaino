@@ -1,9 +1,8 @@
-#include "pch.h"
 #include "LookbackOption.h"
 
 
 //Function to simulate a single path of the option lookback
-double simulate_lookback(double S0, double r, double sigma, double T, int steps, Option type, std::mt19937& gen, std::normal_distribution<>& Z) {
+double LookbackOption::simulate_lookback(Option type, double S0, double r, double sigma, double T, int steps, std::mt19937& gen, std::normal_distribution<>& Z) const{
 
     double dt = T / steps;
     double S = S0;
@@ -12,7 +11,7 @@ double simulate_lookback(double S0, double r, double sigma, double T, int steps,
 
     for (int i = 0; i < steps; i++) {
         double z = Z(gen);
-        S *= std::exp((r - 0.5 * sigma * sigma) * dt + sigma * sqrt(dt) * z);
+        S *= std::exp((r - 0.5 * sigma * sigma) * dt + sigma * std::sqrt(dt) * z);
         minS = std::min(minS, S);
         maxS = std::max(maxS, S);
     }
@@ -24,62 +23,86 @@ double simulate_lookback(double S0, double r, double sigma, double T, int steps,
 
 
 //Price simulation with Monte Carlo
-double price_lookback(Option type, double S0, double r, double sigma, double T, int steps, int paths, unsigned int seed) {
+double LookbackOption::price_lookback(const LookbackParams& p) const{
 
-    std::mt19937 gen(seed);
+    std::mt19937 gen(p.seed);
     std::normal_distribution<> Z(0.0, 1.0);
 
     double sum = 0.0;
-    for (int i = 0; i < paths; i++)
-        sum += simulate_lookback(S0, r, sigma, T, steps, type, gen, Z);
+    for (int i = 0; i < p.paths; i++)
+        sum += simulate_lookback(p.type, p.S0, p.r, p.sigma, p.T, p.steps, gen, Z);
 
-    return std::exp(-r * T) * (sum / paths);
+    return std::exp(-p.r * p.T) * (sum / p.paths);
 }
 
 //Greeks
 
 //Delta of the option
-double delta_lookback(Option type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed) {
+double LookbackOption::delta_lookback(const LookbackParams& p, const GreeksParams& g) const{
 
-    double P_plus = price_lookback(type, S0 + h, r, sigma, T, steps, paths, seed);
-    double P_minus = price_lookback(type, S0 - h, r, sigma, T, steps, paths, seed);
+    LookbackParams p_plus = p;
+    LookbackParams p_minus = p;
+    p_plus.S0 += g.hS;
+    p_minus.S0 -= g.hS;
 
-    return (P_plus - P_minus) / (2.0 * h);
+    const double P_plus = price_lookback(p_plus);
+    const double P_minus = price_lookback(p_minus);
+
+    return (P_plus - P_minus) / (2.0 * g.hS);
 }
 
 //Gamma of the option
-double gamma_lookback(Option type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed) {
+double LookbackOption::gamma_lookback(const LookbackParams& p, const GreeksParams& g) const{
 
-    double P_plus = price_lookback(type, S0 + h, r, sigma, T, steps, paths, seed);
-    double P = price_lookback(type, S0, r, sigma, T, steps, paths, seed);
-    double P_minus = price_lookback(type, S0 - h, r, sigma, T, steps, paths, seed);
+    LookbackParams p_plus = p;
+    LookbackParams p_minus = p;
+    p_plus.S0 += g.hg;
+    p_minus.S0 -= g.hg;
 
-    return (P_plus - 2.0 * P + P_minus) / (h * h);
+    const double P_plus = price_lookback(p_plus);
+    const double P = price_lookback(p);
+    const double P_minus = price_lookback(p_minus);
+
+    return (P_plus - 2.0 * P + P_minus) / (g.hg * g.hg);
 }
 
 //Theta of the option
-double theta_lookback(Option type, double S0, double r, double sigma, double T, int steps, int paths, double dt, unsigned int seed) {
+double  LookbackOption::theta_lookback(const LookbackParams& p, const GreeksParams& g) const{
 
-    double P_today = price_lookback(type, S0, r, sigma, T, steps, paths, seed);
-    double P_future = price_lookback(type, S0, r, sigma, T - dt, steps, paths, seed);
+    LookbackParams p_today = p;
+    LookbackParams p_future = p;
+    p_future.T = p.T - g.dt;
 
-    return (P_future - P_today) / dt; //negative if the price decreses wrt time
+    const double P_today = price_lookback(p_today);
+    const double P_future = price_lookback(p_future);
+
+    return (P_future - P_today) / g.dt; //negative if the price decreses wrt time
 }
 
 //Rho of the option
-double rho_lookback(Option type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed) {
+double  LookbackOption::rho_lookback(const LookbackParams& p, const GreeksParams& g) const{
 
-    double P_plus = price_lookback(type, S0, r + h, sigma, T, steps, paths, seed);
-    double P_minus = price_lookback(type, S0, r - h, sigma, T, steps, paths, seed);
+    LookbackParams p_plus = p;
+    LookbackParams p_minus = p;
+    p_plus.r += g.hR;
+    p_minus.r -= g.hR;
 
-    return (P_plus - P_minus) / (2.0 * h);
+    double P_plus = price_lookback(p_plus);
+    double P_minus = price_lookback(p_minus);
+
+    return (P_plus - P_minus) / (2.0 * g.hR);
 }
 
 //Vega of the option
-double vega_lookback(Option type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed) {
+double  LookbackOption::vega_lookback(const LookbackParams& p, const GreeksParams& g) const{
 
-    double P_plus = price_lookback(type, S0, r, sigma + h, T, steps, paths, seed);
-    double P_minus = price_lookback(type, S0, r, sigma - h, T, steps, paths, seed);
+    LookbackParams p_plus = p;
+    LookbackParams p_minus = p;
+    p_plus.sigma += g.hV;
+    p_minus.sigma -= g.hV;
 
-    return (P_plus - P_minus) / (2.0 * h);
+    double P_plus = price_lookback(p_plus);
+    double P_minus = price_lookback(p_minus);
+
+    return (P_plus - P_minus) / (2.0 * g.hV);
 }
