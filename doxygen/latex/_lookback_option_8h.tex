@@ -1,0 +1,135 @@
+\doxysection{Dll\+\_\+project\+Lookback/\+Lookback\+Option.h File Reference}
+\hypertarget{_lookback_option_8h}{}\label{_lookback_option_8h}\index{Dll\_projectLookback/LookbackOption.h@{Dll\_projectLookback/LookbackOption.h}}
+{\ttfamily \#include "{}pch.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_lookback_option_8h_a0185b3f901570711c87f5defc37564bc}{LOOKBACKOPTION\+\_\+H}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}} \{ \mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35fac3755e61202abd74da5885d2e9c9160e}{Call}}
+, \mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35fad0bf1810982e9728fcf3ac444a015373}{Put}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_lookback_option_8h_a56fe14dfa8283aec0d4f185a72dede97}{price\+\_\+lookback}} (\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}} type, double S0, double r, double sigma, double T, int steps, int paths, unsigned int seed)
+\item 
+double \mbox{\hyperlink{_lookback_option_8h_ae8e2bcabe0abd6ac7c696a692a3ab3b7}{delta\+\_\+lookback}} (\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}} type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed)
+\item 
+double \mbox{\hyperlink{_lookback_option_8h_aa377e39d7b31531cb4211c72c670ebc0}{gamma\+\_\+lookback}} (\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}} type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed)
+\item 
+double \mbox{\hyperlink{_lookback_option_8h_a4f27e8582d1694b45680c886ac9466c4}{theta\+\_\+lookback}} (\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}} type, double S0, double r, double sigma, double T, int steps, int paths, double dt, unsigned int seed)
+\item 
+double \mbox{\hyperlink{_lookback_option_8h_a094cf81e350ce68b47a18079ed909e42}{rho\+\_\+lookback}} (\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}} type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed)
+\item 
+double \mbox{\hyperlink{_lookback_option_8h_ad4d56ce96b61d8f4edf5c0a1b9db0fde}{vega\+\_\+lookback}} (\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}} type, double S0, double r, double sigma, double T, int steps, int paths, double h, unsigned int seed)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{_lookback_option_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_lookback_option_8h_a0185b3f901570711c87f5defc37564bc}\index{LookbackOption.h@{LookbackOption.h}!LOOKBACKOPTION\_H@{LOOKBACKOPTION\_H}}
+\index{LOOKBACKOPTION\_H@{LOOKBACKOPTION\_H}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{LOOKBACKOPTION\_H}{LOOKBACKOPTION\_H}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_a0185b3f901570711c87f5defc37564bc} 
+\#define LOOKBACKOPTION\+\_\+H}
+
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8h_source_l00003}{3}} of file \mbox{\hyperlink{_lookback_option_8h_source}{Lookback\+Option.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{_lookback_option_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}\index{LookbackOption.h@{LookbackOption.h}!Option@{Option}}
+\index{Option@{Option}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{Option}{Option}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f} 
+enum class \mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Call@{Call}!LookbackOption.h@{LookbackOption.h}}\index{LookbackOption.h@{LookbackOption.h}!Call@{Call}}}\Hypertarget{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35fac3755e61202abd74da5885d2e9c9160e}\label{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35fac3755e61202abd74da5885d2e9c9160e} 
+Call&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Put@{Put}!LookbackOption.h@{LookbackOption.h}}\index{LookbackOption.h@{LookbackOption.h}!Put@{Put}}}\Hypertarget{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35fad0bf1810982e9728fcf3ac444a015373}\label{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35fad0bf1810982e9728fcf3ac444a015373} 
+Put&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8h_source_l00006}{6}} of file \mbox{\hyperlink{_lookback_option_8h_source}{Lookback\+Option.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{_lookback_option_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_lookback_option_8h_ae8e2bcabe0abd6ac7c696a692a3ab3b7}\index{LookbackOption.h@{LookbackOption.h}!delta\_lookback@{delta\_lookback}}
+\index{delta\_lookback@{delta\_lookback}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{delta\_lookback()}{delta\_lookback()}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_ae8e2bcabe0abd6ac7c696a692a3ab3b7} 
+double delta\+\_\+lookback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}}]{type}{, }\item[{double}]{S0}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{double}]{h}{, }\item[{unsigned int}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{_lookback_option_8cpp_source}{Lookback\+Option.\+cpp}}.
+
+\Hypertarget{_lookback_option_8h_aa377e39d7b31531cb4211c72c670ebc0}\index{LookbackOption.h@{LookbackOption.h}!gamma\_lookback@{gamma\_lookback}}
+\index{gamma\_lookback@{gamma\_lookback}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{gamma\_lookback()}{gamma\_lookback()}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_aa377e39d7b31531cb4211c72c670ebc0} 
+double gamma\+\_\+lookback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}}]{type}{, }\item[{double}]{S0}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{double}]{h}{, }\item[{unsigned int}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{_lookback_option_8cpp_source}{Lookback\+Option.\+cpp}}.
+
+\Hypertarget{_lookback_option_8h_a56fe14dfa8283aec0d4f185a72dede97}\index{LookbackOption.h@{LookbackOption.h}!price\_lookback@{price\_lookback}}
+\index{price\_lookback@{price\_lookback}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{price\_lookback()}{price\_lookback()}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_a56fe14dfa8283aec0d4f185a72dede97} 
+double price\+\_\+lookback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}}]{type}{, }\item[{double}]{S0}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{unsigned int}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_lookback_option_8cpp_source}{Lookback\+Option.\+cpp}}.
+
+\Hypertarget{_lookback_option_8h_a094cf81e350ce68b47a18079ed909e42}\index{LookbackOption.h@{LookbackOption.h}!rho\_lookback@{rho\_lookback}}
+\index{rho\_lookback@{rho\_lookback}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{rho\_lookback()}{rho\_lookback()}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_a094cf81e350ce68b47a18079ed909e42} 
+double rho\+\_\+lookback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}}]{type}{, }\item[{double}]{S0}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{double}]{h}{, }\item[{unsigned int}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{_lookback_option_8cpp_source}{Lookback\+Option.\+cpp}}.
+
+\Hypertarget{_lookback_option_8h_a4f27e8582d1694b45680c886ac9466c4}\index{LookbackOption.h@{LookbackOption.h}!theta\_lookback@{theta\_lookback}}
+\index{theta\_lookback@{theta\_lookback}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{theta\_lookback()}{theta\_lookback()}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_a4f27e8582d1694b45680c886ac9466c4} 
+double theta\+\_\+lookback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}}]{type}{, }\item[{double}]{S0}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{double}]{dt}{, }\item[{unsigned int}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{_lookback_option_8cpp_source}{Lookback\+Option.\+cpp}}.
+
+\Hypertarget{_lookback_option_8h_ad4d56ce96b61d8f4edf5c0a1b9db0fde}\index{LookbackOption.h@{LookbackOption.h}!vega\_lookback@{vega\_lookback}}
+\index{vega\_lookback@{vega\_lookback}!LookbackOption.h@{LookbackOption.h}}
+\doxysubsubsection{\texorpdfstring{vega\_lookback()}{vega\_lookback()}}
+{\footnotesize\ttfamily \label{_lookback_option_8h_ad4d56ce96b61d8f4edf5c0a1b9db0fde} 
+double vega\+\_\+lookback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}}]{type}{, }\item[{double}]{S0}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{double}]{h}{, }\item[{unsigned int}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lookback_option_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{_lookback_option_8cpp_source}{Lookback\+Option.\+cpp}}.
+
