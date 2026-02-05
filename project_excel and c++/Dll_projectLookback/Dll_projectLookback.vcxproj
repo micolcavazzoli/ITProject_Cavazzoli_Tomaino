@@ -85,7 +85,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetPath)" "C:\Users\PC\Desktop\PARIS-SACLAY\Primo Semestre\PROGRAMMATION + PROJECT INFORMATIQUE\Project-informatique\project_excel and c++\project_excel\$(TargetFileName)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -105,7 +106,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetPath)" "C:\Users\PC\Desktop\PARIS-SACLAY\Primo Semestre\PROGRAMMATION + PROJECT INFORMATIQUE\Project-informatique\project_excel and c++\project_excel\$(TargetFileName)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,7 +125,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetPath)" "C:\Users\PC\Desktop\PARIS-SACLAY\Primo Semestre\PROGRAMMATION + PROJECT INFORMATIQUE\Project-informatique\project_excel and c++\project_excel\$(TargetFileName)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,7 +146,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetPath)" "C:\Users\PC\Desktop\PARIS-SACLAY\Primo Semestre\PROGRAMMATION + PROJECT INFORMATIQUE\Project-informatique\project_excel and c++\project_excel\$(TargetFileName)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
