@@ -1,0 +1,51 @@
+\doxysection{pricer\+\_\+api.\+cpp File Reference}
+\hypertarget{pricer__api_8cpp}{}\label{pricer__api_8cpp}\index{pricer\_api.cpp@{pricer\_api.cpp}}
+{\ttfamily \#include "{}pricer\+\_\+api.\+h"{}}\newline
+{\ttfamily \#include "{}Lookback\+Option.\+h"{}}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{pricer__api_8h_a076da3e5e606ad7d0b8a4315917b86d3}{DLL\+\_\+\+CALL}} \mbox{\hyperlink{pricer__api_8cpp_a45daa1c073be44cfa15a6691182f8222}{Lookback\+Price\+Greeks}} (double S0, double r, double sigma, double T, int is\+Call, int steps, int paths, double hS, double hg, double dt, double hR, double hV, unsigned int seed, double \texorpdfstring{$\ast$}{*}price, double \texorpdfstring{$\ast$}{*}delta, double \texorpdfstring{$\ast$}{*}gamma, double \texorpdfstring{$\ast$}{*}theta, double \texorpdfstring{$\ast$}{*}rho, double \texorpdfstring{$\ast$}{*}vega, char \texorpdfstring{$\ast$}{*}err\+Msg, int err\+Len)
+\item 
+int \mbox{\hyperlink{pricer__api_8h_a076da3e5e606ad7d0b8a4315917b86d3}{DLL\+\_\+\+CALL}} \mbox{\hyperlink{pricer__api_8cpp_a517ef47769f28b2a74f2d938607e0484}{Lookback\+Count\+Points}} (double Smin, double Smax, double dS)
+\item 
+int \mbox{\hyperlink{pricer__api_8h_a076da3e5e606ad7d0b8a4315917b86d3}{DLL\+\_\+\+CALL}} \mbox{\hyperlink{pricer__api_8cpp_a84a95e6dd2c82524a7be0303205cf3ea}{Lookback\+Price\+Delta\+Curve}} (double Smin, double Smax, double dS, double r, double sigma, double T, int is\+Call, int steps, int paths, double hS, unsigned int seed, double \texorpdfstring{$\ast$}{*}outS, double \texorpdfstring{$\ast$}{*}out\+Price, double \texorpdfstring{$\ast$}{*}out\+Delta, int n\+Points, char \texorpdfstring{$\ast$}{*}err\+Msg, int err\+Len)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{pricer__api_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{pricer__api_8cpp_a517ef47769f28b2a74f2d938607e0484}\index{pricer\_api.cpp@{pricer\_api.cpp}!LookbackCountPoints@{LookbackCountPoints}}
+\index{LookbackCountPoints@{LookbackCountPoints}!pricer\_api.cpp@{pricer\_api.cpp}}
+\doxysubsubsection{\texorpdfstring{LookbackCountPoints()}{LookbackCountPoints()}}
+{\footnotesize\ttfamily \label{pricer__api_8cpp_a517ef47769f28b2a74f2d938607e0484} 
+int \mbox{\hyperlink{pricer__api_8h_a076da3e5e606ad7d0b8a4315917b86d3}{DLL\+\_\+\+CALL}} Lookback\+Count\+Points (\begin{DoxyParamCaption}\item[{double}]{Smin}{, }\item[{double}]{Smax}{, }\item[{double}]{dS}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pricer__api_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{pricer__api_8cpp_source}{pricer\+\_\+api.\+cpp}}.
+
+\Hypertarget{pricer__api_8cpp_a84a95e6dd2c82524a7be0303205cf3ea}\index{pricer\_api.cpp@{pricer\_api.cpp}!LookbackPriceDeltaCurve@{LookbackPriceDeltaCurve}}
+\index{LookbackPriceDeltaCurve@{LookbackPriceDeltaCurve}!pricer\_api.cpp@{pricer\_api.cpp}}
+\doxysubsubsection{\texorpdfstring{LookbackPriceDeltaCurve()}{LookbackPriceDeltaCurve()}}
+{\footnotesize\ttfamily \label{pricer__api_8cpp_a84a95e6dd2c82524a7be0303205cf3ea} 
+int \mbox{\hyperlink{pricer__api_8h_a076da3e5e606ad7d0b8a4315917b86d3}{DLL\+\_\+\+CALL}} Lookback\+Price\+Delta\+Curve (\begin{DoxyParamCaption}\item[{double}]{Smin}{, }\item[{double}]{Smax}{, }\item[{double}]{dS}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{is\+Call}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{double}]{hS}{, }\item[{unsigned int}]{seed}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{outS}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{out\+Price}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{out\+Delta}{, }\item[{int}]{n\+Points}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{err\+Msg}{, }\item[{int}]{err\+Len}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pricer__api_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{pricer__api_8cpp_source}{pricer\+\_\+api.\+cpp}}.
+
+\Hypertarget{pricer__api_8cpp_a45daa1c073be44cfa15a6691182f8222}\index{pricer\_api.cpp@{pricer\_api.cpp}!LookbackPriceGreeks@{LookbackPriceGreeks}}
+\index{LookbackPriceGreeks@{LookbackPriceGreeks}!pricer\_api.cpp@{pricer\_api.cpp}}
+\doxysubsubsection{\texorpdfstring{LookbackPriceGreeks()}{LookbackPriceGreeks()}}
+{\footnotesize\ttfamily \label{pricer__api_8cpp_a45daa1c073be44cfa15a6691182f8222} 
+int \mbox{\hyperlink{pricer__api_8h_a076da3e5e606ad7d0b8a4315917b86d3}{DLL\+\_\+\+CALL}} Lookback\+Price\+Greeks (\begin{DoxyParamCaption}\item[{double}]{S0}{, }\item[{double}]{r}{, }\item[{double}]{sigma}{, }\item[{double}]{T}{, }\item[{int}]{is\+Call}{, }\item[{int}]{steps}{, }\item[{int}]{paths}{, }\item[{double}]{hS}{, }\item[{double}]{hg}{, }\item[{double}]{dt}{, }\item[{double}]{hR}{, }\item[{double}]{hV}{, }\item[{unsigned int}]{seed}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{price}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{delta}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{gamma}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{theta}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{rho}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{vega}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{err\+Msg}{, }\item[{int}]{err\+Len}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pricer__api_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{pricer__api_8cpp_source}{pricer\+\_\+api.\+cpp}}.
+

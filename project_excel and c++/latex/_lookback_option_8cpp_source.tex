@@ -1,0 +1,113 @@
+\doxysection{Lookback\+Option.\+cpp}
+\hypertarget{_lookback_option_8cpp_source}{}\label{_lookback_option_8cpp_source}\mbox{\hyperlink{_lookback_option_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_lookback_option_8h}{LookbackOption.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00004}00004\ \textcolor{comment}{//Function\ to\ simulate\ a\ single\ path\ of\ the\ option\ lookback}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00005}00005\ \textcolor{keywordtype}{double}\ LookbackOption::simulate\_lookback(\mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35f}{Option}}\ type,\ \textcolor{keywordtype}{double}\ S0,\ \textcolor{keywordtype}{double}\ r,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{double}\ T,\ \textcolor{keywordtype}{int}\ steps,\ std::mt19937\&\ gen,\ std::normal\_distribution<>\&\ Z)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keywordtype}{double}\ dt\ =\ T\ /\ steps;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{double}\ S\ =\ S0;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{double}\ minS\ =\ S0;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{double}\ maxS\ =\ S0;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ steps;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ Z(gen);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ S\ *=\ std::exp((r\ -\/\ 0.5\ *\ sigma\ *\ sigma)\ *\ dt\ +\ sigma\ *\ std::sqrt(dt)\ *\ z);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ minS\ =\ std::min(minS,\ S);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ maxS\ =\ std::max(maxS,\ S);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \mbox{\hyperlink{_lookback_option_8h_a0e65ad13124ea2cb5e255b640464e35fac3755e61202abd74da5885d2e9c9160e}{Option::Call}})}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ S\ -\/\ minS;\ \ \textcolor{comment}{//payoff\ call\ lookback}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxS\ -\/\ S;\ \ \textcolor{comment}{//payoff\ put\ lookback}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00025}00025\ \textcolor{comment}{//Price\ simulation\ with\ Monte\ Carlo}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00026}\mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{00026}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{LookbackOption::price\_lookback}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\&\ p)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00028}00028\ \ \ \ \ std::mt19937\ gen(p.\mbox{\hyperlink{struct_lookback_params_aa7d041bc68ae9a9d60d38db219b36aed}{seed}});}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00029}00029\ \ \ \ \ std::normal\_distribution<>\ Z(0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ p.\mbox{\hyperlink{struct_lookback_params_aa635d543dcfe3ecec8abc3b9e727c3f3}{paths}};\ i++)}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ sum\ +=\ simulate\_lookback(p.\mbox{\hyperlink{struct_lookback_params_a765cc3f22a5c0616c633ab0b729b4236}{type}},\ p.\mbox{\hyperlink{struct_lookback_params_a60f26bfe9afc9c19aa45dbf2dfcfe084}{S0}},\ p.\mbox{\hyperlink{struct_lookback_params_ae7dffd4c62e267681fe6f23acfe64573}{r}},\ p.\mbox{\hyperlink{struct_lookback_params_a622b6823eeaf372cef64936d265751af}{sigma}},\ p.\mbox{\hyperlink{struct_lookback_params_a54966b3dd09f4a812e341aca5f666a74}{T}},\ p.\mbox{\hyperlink{struct_lookback_params_a1ae62bac5a515d978effd6d4df55fdaf}{steps}},\ gen,\ Z);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/p.\mbox{\hyperlink{struct_lookback_params_ae7dffd4c62e267681fe6f23acfe64573}{r}}\ *\ p.\mbox{\hyperlink{struct_lookback_params_a54966b3dd09f4a812e341aca5f666a74}{T}})\ *\ (sum\ /\ p.\mbox{\hyperlink{struct_lookback_params_aa635d543dcfe3ecec8abc3b9e727c3f3}{paths}});}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00038}00038\ \textcolor{comment}{//Greeks}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00040}00040\ \textcolor{comment}{//Delta\ of\ the\ option}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00041}\mbox{\hyperlink{class_lookback_option_a0a7f1ab7d943471ad0d2fff598624fda}{00041}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_lookback_option_a0a7f1ab7d943471ad0d2fff598624fda}{LookbackOption::delta\_lookback}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\&\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_greeks_params}{GreeksParams}}\&\ g)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_plus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_minus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00045}00045\ \ \ \ \ p\_plus.\mbox{\hyperlink{struct_lookback_params_a60f26bfe9afc9c19aa45dbf2dfcfe084}{S0}}\ +=\ g.\mbox{\hyperlink{struct_greeks_params_a822691563bd5be1e8acc4ba3607f0a39}{hS}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00046}00046\ \ \ \ \ p\_minus.\mbox{\hyperlink{struct_lookback_params_a60f26bfe9afc9c19aa45dbf2dfcfe084}{S0}}\ -\/=\ g.\mbox{\hyperlink{struct_greeks_params_a822691563bd5be1e8acc4ba3607f0a39}{hS}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ P\_plus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_plus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ P\_minus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_minus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ (P\_plus\ -\/\ P\_minus)\ /\ (2.0\ *\ g.\mbox{\hyperlink{struct_greeks_params_a822691563bd5be1e8acc4ba3607f0a39}{hS}});}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00054}00054\ \textcolor{comment}{//Gamma\ of\ the\ option}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00055}\mbox{\hyperlink{class_lookback_option_aa189a0d234dd9062e2822fccaeaadac7}{00055}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_lookback_option_aa189a0d234dd9062e2822fccaeaadac7}{LookbackOption::gamma\_lookback}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\&\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_greeks_params}{GreeksParams}}\&\ g)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_plus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_minus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00059}00059\ \ \ \ \ p\_plus.\mbox{\hyperlink{struct_lookback_params_a60f26bfe9afc9c19aa45dbf2dfcfe084}{S0}}\ +=\ g.\mbox{\hyperlink{struct_greeks_params_a00662117fa25065bb1a0f8a3937dc42f}{hg}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00060}00060\ \ \ \ \ p\_minus.\mbox{\hyperlink{struct_lookback_params_a60f26bfe9afc9c19aa45dbf2dfcfe084}{S0}}\ -\/=\ g.\mbox{\hyperlink{struct_greeks_params_a00662117fa25065bb1a0f8a3937dc42f}{hg}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ P\_plus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_plus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ P\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ P\_minus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_minus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{return}\ (P\_plus\ -\/\ 2.0\ *\ P\ +\ P\_minus)\ /\ (g.\mbox{\hyperlink{struct_greeks_params_a00662117fa25065bb1a0f8a3937dc42f}{hg}}\ *\ g.\mbox{\hyperlink{struct_greeks_params_a00662117fa25065bb1a0f8a3937dc42f}{hg}});}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00069}00069\ \textcolor{comment}{//Theta\ of\ the\ option}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00070}\mbox{\hyperlink{class_lookback_option_ac7a36ef869a75779e80df0311e20ad29}{00070}}\ \textcolor{keywordtype}{double}\ \ \mbox{\hyperlink{class_lookback_option_ac7a36ef869a75779e80df0311e20ad29}{LookbackOption::theta\_lookback}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\&\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_greeks_params}{GreeksParams}}\&\ g)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_today\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_future\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00074}00074\ \ \ \ \ p\_future.\mbox{\hyperlink{struct_lookback_params_a54966b3dd09f4a812e341aca5f666a74}{T}}\ =\ p.\mbox{\hyperlink{struct_lookback_params_a54966b3dd09f4a812e341aca5f666a74}{T}}\ -\/\ g.\mbox{\hyperlink{struct_greeks_params_a0db03671f342831ba5b99c8eefbb0e41}{dt}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ P\_today\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_today);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ P\_future\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_future);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{return}\ (P\_future\ -\/\ P\_today)\ /\ g.\mbox{\hyperlink{struct_greeks_params_a0db03671f342831ba5b99c8eefbb0e41}{dt}};\ \textcolor{comment}{//negative\ if\ the\ price\ decreses\ wrt\ time}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00082}00082\ \textcolor{comment}{//Rho\ of\ the\ option}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00083}\mbox{\hyperlink{class_lookback_option_a2a6014664a2b6898ad24215026a46da8}{00083}}\ \textcolor{keywordtype}{double}\ \ \mbox{\hyperlink{class_lookback_option_a2a6014664a2b6898ad24215026a46da8}{LookbackOption::rho\_lookback}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\&\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_greeks_params}{GreeksParams}}\&\ g)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_plus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_minus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00087}00087\ \ \ \ \ p\_plus.\mbox{\hyperlink{struct_lookback_params_ae7dffd4c62e267681fe6f23acfe64573}{r}}\ +=\ g.\mbox{\hyperlink{struct_greeks_params_a6835364d5ed865e63a8d17c8183f594e}{hR}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00088}00088\ \ \ \ \ p\_minus.\mbox{\hyperlink{struct_lookback_params_ae7dffd4c62e267681fe6f23acfe64573}{r}}\ -\/=\ g.\mbox{\hyperlink{struct_greeks_params_a6835364d5ed865e63a8d17c8183f594e}{hR}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{double}\ P\_plus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_plus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{double}\ P\_minus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_minus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{return}\ (P\_plus\ -\/\ P\_minus)\ /\ (2.0\ *\ g.\mbox{\hyperlink{struct_greeks_params_a6835364d5ed865e63a8d17c8183f594e}{hR}});}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00096}00096\ \textcolor{comment}{//Vega\ of\ the\ option}}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00097}\mbox{\hyperlink{class_lookback_option_af6b88773002e3c03d7bfa1ac2961e72a}{00097}}\ \textcolor{keywordtype}{double}\ \ \mbox{\hyperlink{class_lookback_option_af6b88773002e3c03d7bfa1ac2961e72a}{LookbackOption::vega\_lookback}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\&\ p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_greeks_params}{GreeksParams}}\&\ g)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00099}00099\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_plus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00100}00100\ \ \ \ \ \mbox{\hyperlink{struct_lookback_params}{LookbackParams}}\ p\_minus\ =\ p;}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00101}00101\ \ \ \ \ p\_plus.\mbox{\hyperlink{struct_lookback_params_a622b6823eeaf372cef64936d265751af}{sigma}}\ +=\ g.\mbox{\hyperlink{struct_greeks_params_a38a8de445eaf3e36b64b0a980422515e}{hV}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00102}00102\ \ \ \ \ p\_minus.\mbox{\hyperlink{struct_lookback_params_a622b6823eeaf372cef64936d265751af}{sigma}}\ -\/=\ g.\mbox{\hyperlink{struct_greeks_params_a38a8de445eaf3e36b64b0a980422515e}{hV}};}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{double}\ P\_plus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_plus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{keywordtype}{double}\ P\_minus\ =\ \mbox{\hyperlink{class_lookback_option_a45318d2a1bd57a9866993b3993a7107a}{price\_lookback}}(p\_minus);}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{return}\ (P\_plus\ -\/\ P\_minus)\ /\ (2.0\ *\ g.\mbox{\hyperlink{struct_greeks_params_a38a8de445eaf3e36b64b0a980422515e}{hV}});}
+\DoxyCodeLine{\Hypertarget{_lookback_option_8cpp_source_l00108}00108\ \}}
+
+\end{DoxyCode}
