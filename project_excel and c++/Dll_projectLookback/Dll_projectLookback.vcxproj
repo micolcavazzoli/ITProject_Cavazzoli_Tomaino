@@ -151,12 +151,22 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< Updated upstream:project_excel and c++/Dll_projectLookback/Dll_projectLookback.vcxproj
     <ClInclude Include="LookbackOption.h" />
     <ClInclude Include="pricer_api.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LookbackOption.cpp" />
     <ClCompile Include="pricer_api.cpp" />
+=======
+    <ClCompile Include="LookbackOption.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="plots.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LookbackOption.h" />
+    <ClInclude Include="plots.h" />
+>>>>>>> Stashed changes:project/project.vcxproj
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

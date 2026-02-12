@@ -29,5 +29,19 @@
     <ClCompile Include="pricer_api.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="LookbackOption.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="plots.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LookbackOption.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="plots.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
